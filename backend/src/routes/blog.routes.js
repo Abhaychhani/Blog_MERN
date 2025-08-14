@@ -1,10 +1,12 @@
 import { Router } from "express";
-import { createBlog, fetchBlogById } from "../controllers/blog.controllers.js";
+import { createBlog, deleteBlogById, fetchBlogById, updateBlogById } from "../controllers/blog.controllers.js";
 import verifyJWT from "../middlewares/auth.middleware.js";
 
 const blogRouter = Router()
 
-blogRouter.post("/create",verifyJWT,createBlog);
 blogRouter.get("/:id",fetchBlogById);
+blogRouter.post("/create",verifyJWT,createBlog);
+blogRouter.patch("/:id",verifyJWT,updateBlogById);
+blogRouter.delete("/:id",verifyJWT,deleteBlogById);
 
 export default blogRouter;

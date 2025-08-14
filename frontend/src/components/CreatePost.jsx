@@ -8,7 +8,7 @@ function CreatePost() {
   const [content, setContent] = useState("");
   const modules = {
     toolbar: [
-      [{ header: [1, 2, 3, false] }],
+      [{ header: [1, 2, 3,4,5,6,false] }],
       ["bold", "italic", "underline", "strike"],
       [{ list: "ordered" }, { list: "bullet" }],
       ["link", "image"],
@@ -18,7 +18,8 @@ function CreatePost() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("submit post");
+    console.log(title);
+    console.log(content);
   };
 
   return (

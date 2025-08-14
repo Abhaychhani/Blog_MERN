@@ -16,7 +16,7 @@ function Sidebar() {
     {
         id: 3,
         text: "All Blogs",
-        path:"/dashboard/all-blogs",
+        path:"/dashboard/blogs",
     },
   ];
   return (

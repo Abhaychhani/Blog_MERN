@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Profile({ logout }) {
@@ -11,7 +11,7 @@ function Profile({ logout }) {
           setShowProfileOptions(!showProfleOptions);
         }}
       >
-        <img src={"vite.svg"} className="cursor-pointer object-cover h-full w-full"/>
+        <img src={"profile.jpg"} className="cursor-pointer object-cover h-full w-full"/>
 
         {showProfleOptions ? (
           <div className="absolute top-16 right-4 bg-white p-2 rounded">

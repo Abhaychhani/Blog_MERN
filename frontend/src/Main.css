@@ -1,2 +1,6 @@
 @import "tailwindcss";
 
+/* styles.scss or a separate components file */
+.default-btn {
+  @apply bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-300 ease-in-out hover:from-blue-600 hover:to-blue-800 hover:shadow-lg active:scale-95 cursor-pointer;
+}

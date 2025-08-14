@@ -11,9 +11,7 @@ function Dashboard() {
   return (
     <div className="flex">
       <Sidebar />
-      <div>
-        <Outlet/>
-      </div>
+      <Outlet />
     </div>
   );
 }

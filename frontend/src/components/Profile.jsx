@@ -17,7 +17,7 @@ function Profile({ logout }) {
           <div className="absolute top-16 right-4 bg-white p-2 rounded">
             <ul className="text-black">
                 <li>
-                    <Link to="/dashboard">
+                    <Link to="/dashboard/create-post">
                     Dashboard
                     </Link>
                 </li>

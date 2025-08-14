@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import Blog from "../models/blog.model.js";
 
 const createBlog = async (req, res) => {
@@ -67,8 +68,12 @@ const deleteBlogById = async (req, res) => {
 };
 
 const fetchBlogsByUserId = async (req, res) => {
+  const {userId} = req.params;
+  if(! mongoose.Types.ObjectId.isValid(userId)){
+    return res.status(400).json({message:"Invalid id format."})
+  }
   try {
-    const fetchedBlogs = await Blog.find({author:req.params.id});
+    const fetchedBlogs = await Blog.find({author:userId});
     if(!fetchedBlogs){
       return res.status(404).json({message:"User not Found:("});
     }

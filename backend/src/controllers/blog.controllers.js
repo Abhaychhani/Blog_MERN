@@ -67,20 +67,36 @@ const deleteBlogById = async (req, res) => {
   }
 };
 
-const fetchBlogsByUserId = async (req, res) => {
-  const {userId} = req.params;
-  if(! mongoose.Types.ObjectId.isValid(userId)){
-    return res.status(400).json({message:"Invalid id format."})
-  }
+const fetchBlogs = async (req, res) => {
   try {
-    const fetchedBlogs = await Blog.find({author:userId});
-    if(!fetchedBlogs){
-      return res.status(404).json({message:"User not Found:("});
-    }
-    res.status(200).json({message:"Fetched Blogs Successfully:)",blogs:fetchedBlogs});
+    const limit = 5;
+    const page = parseInt(req.query.page) || 1;
+
+    const fetchedBlogs = await Blog.find()
+      .skip((page - 1) * limit)
+      .limit(limit)
+      .sort({ createdAt: -1 });
+
+    const total = await Blog.countDocuments();
+
+    res
+      .status(200)
+      .json({
+        message: "Fetched Blogs Successfully:)",
+        total,
+        page,
+        totalPages: Math.ceil(total / limit),
+        blogs: fetchedBlogs,
+      });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
-export { createBlog, fetchBlogById, updateBlogById, deleteBlogById, fetchBlogsByUserId };
+export {
+  createBlog,
+  fetchBlogById,
+  updateBlogById,
+  deleteBlogById,
+  fetchBlogs,
+};

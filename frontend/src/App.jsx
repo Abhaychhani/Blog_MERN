@@ -10,6 +10,7 @@ import Login from "./pages/Login.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import CreatePost from "./components/CreatePost.jsx";
 import Analytics from "./pages/Analytics.jsx";
+import AllBlogs from "./pages/AllBlogs.jsx";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route element={<Dashboard />} path="/dashboard" >
             <Route element={<CreatePost/>} path="create-post" />
             <Route element={<Analytics/>} path="analytics" />
+            <Route element={<AllBlogs/>} path="all-blogs" />
           </Route>
         </Routes>
       </Router>

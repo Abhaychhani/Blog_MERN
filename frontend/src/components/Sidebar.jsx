@@ -20,7 +20,7 @@ function Sidebar() {
     },
   ];
   return (
-    <div className="w-[200px] h-[calc(100vh-4rem)] bg-violet-700">
+    <div className="w-[200px] bg-violet-700">
       <ul>
         {sidebarLinks.map((link) => (
           <li key={link.id} className="text-white  pl-4">

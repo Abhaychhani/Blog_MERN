@@ -7,6 +7,7 @@ import Dashboard from "./pages/Dashboard.jsx";
 import CreatePost from "./components/CreatePost.jsx";
 import Analytics from "./pages/Analytics.jsx";
 import AllBlogs from "./pages/AllBlogs.jsx";
+import Blog from "./components/Blog.jsx";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
           <Route element={<Home />} path="/" />
           <Route element={<Login />} path="/login" />
           <Route element={<Register />} path="/register" />
-          <Route element={<Dashboard />} path="/dashboard" >
+          <Route element={<Blog />} path="/blog/:id"/>
+          <Route element={<Dashboard />} path="/:username" >
             <Route element={<CreatePost/>} path="create-post" />
             <Route element={<Analytics/>} path="analytics" />
             <Route element={<AllBlogs/>} path="blogs" />

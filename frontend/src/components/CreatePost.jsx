@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ReactQuill from "react-quill-new";
 import "react-quill-new/dist/quill.snow.css"; //Toobar theme
 import axios from "axios";
@@ -22,8 +22,10 @@ function CreatePost() {
     const data = { title, content };
     if (!title) {
       setError("Title Must be filled.");
+      return;
     } else if (!content) {
       setError("Content Must be filled.");
+      return;
     } else {
       setError(null);
     }
@@ -34,16 +36,16 @@ function CreatePost() {
         { withCredentials: true }
       );
       alert(res.data.message);
-      setTitle("");
-      setContent("");
+      // setTitle("");
+      // setContent("");
     } catch (error) {
       setError(error.message);
     }
   };
 
   return (
-    <div className="flex flex-col gap-4  w-full h-full">
-      <h1 className="text-center font-extrabold uppercase mt-2">Create post</h1>
+    <div className="flex flex-col gap-4  w-full h-full border py-4">
+      <h1 className="text-center font-bold text-3xl uppercase mt-2">Create New Blog</h1>
       <form
         action=""
         onSubmit={handleSubmit}

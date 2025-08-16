@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 function Profile({ logout }) {
   const [showProfleOptions, setShowProfileOptions] = useState(false);
+  const {user} = useContext(AuthContext);
   return (
     <>
       <div
@@ -17,7 +19,7 @@ function Profile({ logout }) {
           <div className="absolute top-16 right-4 bg-white p-2 rounded">
             <ul className="text-black">
                 <li>
-                    <Link to="/dashboard/create-post">
+                    <Link to={`/${user.username}`}>
                     Dashboard
                     </Link>
                 </li>

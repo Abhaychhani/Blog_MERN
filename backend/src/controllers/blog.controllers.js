@@ -69,13 +69,13 @@ const deleteBlogById = async (req, res) => {
 
 const fetchBlogs = async (req, res) => {
   try {
-    const limit = 5;
+    const limit = 4;
     const page = parseInt(req.query.page) || 1;
 
     const fetchedBlogs = await Blog.find()
       .skip((page - 1) * limit)
       .limit(limit)
-      .sort({ createdAt: -1 });
+      
 
     const total = await Blog.countDocuments();
 

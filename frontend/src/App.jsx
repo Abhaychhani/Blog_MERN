@@ -17,10 +17,11 @@ import Analytics from "./pages/dashboard/Analytics";
 import Navbar from "./components/Navbar";
 
 function App() {
+  
   return (
     <Router>
       <div className="min-h-screen bg-gray-50 text-gray-800">
-        <Navbar />
+        <Navbar/>
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<Home />} />

@@ -1,2 +1,30 @@
 @import "tailwindcss";
 
+/* main.css */
+
+body {
+  scroll-behavior: smooth;
+  font-family: 'Inter', sans-serif;
+  background-color: #0F172A;
+  color: #F1F5F9;
+}
+
+/* Neon glow effect */
+.neon-glow {
+  box-shadow: 0 0 10px #6366F1, 0 0 20px #6366F1;
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 1rem;
+}
+
+/* Button hover pulse */
+.btn-pulse:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #8B5CF6;
+  transition: all 0.3s ease-in-out;
+}

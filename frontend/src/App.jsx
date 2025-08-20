@@ -15,6 +15,8 @@ import CreatePost from "./pages/dashboard/CreatePost";
 import Analytics from "./pages/dashboard/Analytics";
 
 import Navbar from "./components/Navbar";
+import Login from "./pages/Login.jsx";
+import Register from "./pages/Register.jsx";
 
 function App() {
   
@@ -29,6 +31,8 @@ function App() {
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           
 
           <Route

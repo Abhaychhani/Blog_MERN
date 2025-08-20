@@ -3,7 +3,7 @@ import Blog from "../models/blog.model.js";
 
 const createBlog = async (req, res) => {
   try {
-    const { title, content } = req.body;
+    const { title, content, description } = req.body;
     const user = req.user;
     if (!user)
       return res.status(401).json({ message: "Login First (Unauthorize.)" });
@@ -13,7 +13,7 @@ const createBlog = async (req, res) => {
         .json({ message: "Title or Content Both required!" });
 
     const author = user._id;
-    const newBlog = await Blog.insertOne({ title, content, author });
+    const newBlog = await Blog.insertOne({ title, content, author,description });
 
     res.status(200).json({ message: "blog created", newBlog });
   } catch (error) {
@@ -25,7 +25,7 @@ const fetchBlogById = async (req, res) => {
   try {
     const blog = await Blog.findById(req.params.id);
     if (!blog) return res.status(404).json({ message: "Blog Not Found." });
-    res.status(200).json({ message: "Blog fetched!", data: blog });
+    res.status(200).json({ message: "Blog fetched!",  blog });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

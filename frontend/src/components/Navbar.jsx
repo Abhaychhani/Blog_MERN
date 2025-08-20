@@ -2,28 +2,11 @@ import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ProfileNav from "./ProfileNav.jsx";
 import { useAuth } from "../context/AuthContext.jsx";
+import SearchBar from "./SearchBar.jsx";
 
 const Navbar = () => {
-    const {isLoggedIn,logout} = useAuth();
-    const navLinkStyles = "hover:text-[#7f5af0] transition capitalize"
-    const navLinks = [
-        {
-            path:"/",
-            text:"Home",
-            styles:navLinkStyles,
-        },
-        {
-            path:"/about",
-            text:"about",
-            styles:navLinkStyles,
-        },
-        {
-            path:"/contact",
-            text:"contact",
-            styles:navLinkStyles,
-        },
-    ]
-    
+  const { isLoggedIn, logout } = useAuth();
+
   return (
     <nav className="bg-[#0f0f1a] text-white px-6 h-[4.2rem] flex justify-between items-center shadow-md">
       {/* Logo */}
@@ -33,14 +16,7 @@ const Navbar = () => {
           className="rotate-[50deg] h-full w-full object-cover"
         />
       </Link>
-
-      {/* Routes */}
-      <div className="flex items-center gap-6">
-        {
-            navLinks.map(link=>(
-                <Link to={link.path} className={link.styles} key={link.path}>{link.text}</Link>
-            ))
-        }
+      <SearchBar/>
 
         {/* Conditional Auth */}
         {!isLoggedIn ? (
@@ -51,9 +27,8 @@ const Navbar = () => {
             Login
           </Link>
         ) : (
-          <ProfileNav logout={logout}/>
+          <ProfileNav logout={logout} />
         )}
-      </div>
     </nav>
   );
 };

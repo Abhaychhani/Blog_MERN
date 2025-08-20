@@ -1,4 +1,16 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext.jsx";
+
 export default function Login() {
+  const {isLoggedIn} = useAuth();
+  const navigate = useNavigate();
+  useEffect(()=>{
+    if(isLoggedIn){
+      navigate("/dashboard");
+    }
+  },[isLoggedIn,navigate])
+
   return (
     <div className="min-h-screen bg-[#0F172A] flex items-center justify-center px-4">
       <div className="bg-[#1E293B] p-8 rounded-xl shadow-lg w-full max-w-md text-slate-100">

@@ -1,6 +1,6 @@
 export default function Contact() {
   return (
-    <div className="p-8 max-w-md mx-auto">
+    <div className="p-8 max-w-md mx-auto h-screen">
       <h2 className="text-3xl font-bold mb-4">Contact</h2>
       <form className="space-y-4">
         <input type="text" placeholder="Name" className="w-full p-2 border rounded" />

@@ -1,20 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Home from "./pages/Home";
-import BlogList from "./pages/BlogList";
-import BlogPost from "./pages/BlogPost";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import NotFound from "./pages/NotFound";
+import Home from "./pages/Home.jsx";
+import BlogList from "./pages/BlogList.jsx";
+import BlogPost from "./pages/BlogPost.jsx";
+import NotFound from "./pages/NotFound.jsx";
 
-import ProtectedRoute from './components/ProtectedRoute';
+import ProtectedRoute from './components/ProtectedRoute.jsx';
 
-import DashboardHome from "./pages/dashboard/DashboardHome";
-import ManagePosts from "./pages/dashboard/ManagePosts";
-import CreatePost from "./pages/dashboard/CreatePost";
-import Analytics from "./pages/dashboard/Analytics";
+import DashboardHome from "./pages/dashboard/DashboardHome.jsx";
+import ManagePosts from "./pages/dashboard/ManagePosts.jsx";
+import CreatePost from "./pages/dashboard/CreatePost.jsx";
+import Analytics from "./pages/dashboard/Analytics.jsx";
 
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 
@@ -29,8 +27,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/blog" element={<BlogList />} />
           <Route path="/blog/:id" element={<BlogPost />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           

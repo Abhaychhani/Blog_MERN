@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function ProfileNav({logout}) {
+function ProfileNav({ logout }) {
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
   const toggleDropdown = () => setShowDropdown((prev) => !prev);
@@ -20,18 +20,19 @@ function ProfileNav({logout}) {
     "block px-4 py-2 hover:bg-[#2c2c3f] text-[#94a1b2] capitalize";
   const navLinks = [
     {
-      path: "/dashboard",
-      text: "dashboard",
+      path: "/profile",
+      text: "profile",
       styles: navLinksStyle,
     },
+
     {
       path: "/settings",
       text: "settings",
       styles: navLinksStyle,
     },
     {
-      path: "/profile",
-      text: "profile",
+      path: "/dashboard",
+      text: "dashboard",
       styles: navLinksStyle,
     },
   ];
@@ -63,8 +64,8 @@ function ProfileNav({logout}) {
             <button
               className="block w-full text-left px-4 py-2 hover:bg-[#2c2c3f] text-[#ff6b6b]"
               onClick={() => {
-                logout()
-                setShowDropdown(false)
+                logout();
+                setShowDropdown(false);
               }}
             >
               Logout

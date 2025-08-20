@@ -1,8 +1,22 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext.jsx";
+
 export default function Register() {
+  const { isLoggedIn } = useAuth();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate("/dashboard");
+    }
+  }, [isLoggedIn,navigate]);
+
   return (
     <div className="min-h-screen bg-[#0F172A] flex items-center justify-center px-4">
       <div className="bg-[#1E293B] p-8 rounded-xl shadow-lg w-full max-w-md text-slate-100">
-        <h2 className="text-3xl font-bold text-center text-indigo-400 mb-6">Register</h2>
+        <h2 className="text-3xl font-bold text-center text-indigo-400 mb-6">
+          Register
+        </h2>
 
         <form className="space-y-4">
           <input
@@ -30,8 +44,11 @@ export default function Register() {
         </form>
 
         <p className="mt-6 text-center text-slate-400">
-          Already have an account?{' '}
-          <a href="/login" className="text-indigo-400 hover:underline transition">
+          Already have an account?{" "}
+          <a
+            href="/login"
+            className="text-indigo-400 hover:underline transition"
+          >
             Login
           </a>
         </p>

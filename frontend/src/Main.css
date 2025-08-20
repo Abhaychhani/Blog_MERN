@@ -10,7 +10,10 @@ body {
 }
 /* Neon glow effect */
 .neon-glow {
-  box-shadow: 0 0 10px #6366F1, 0 0 20px #6366F1;
+  box-shadow: 0 0 10px 0 #6366F1, 0 0 20px 0 #6366F1;
+}
+.searchBar-shadow {
+  box-shadow: 0 0 3px 0 #6366F1, 0 0 7px 0 #6366F1;
 }
 
 /* Glassmorphism card */

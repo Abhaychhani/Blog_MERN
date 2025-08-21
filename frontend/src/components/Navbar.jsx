@@ -1,4 +1,3 @@
-import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ProfileNav from "./ProfileNav.jsx";
 import { useAuth } from "../context/AuthContext.jsx";
@@ -10,10 +9,10 @@ const Navbar = () => {
   return (
     <nav className="bg-[#0f0f1a] text-white px-6 h-[4.2rem] flex justify-between items-center shadow-md">
       {/* Logo */}
-      <Link to="/" className="text-2xl font-bold text-blue-600 h-[5rem]">
+      <Link to="/" className="text-2xl font-bold text-blue-600 h-full">
         <img
           src="/logo.png"
-          className="rotate-[50deg] h-full w-full object-cover"
+          className="rotate-[50deg] h-full w-full object-cover drop-shadow-violet-400 drop-shadow-md hover:scale-110 hover:rotate-45 transition hover:drop-shadow-xl hover:drop-shadow-violet-500"
         />
       </Link>
       <SearchBar/>

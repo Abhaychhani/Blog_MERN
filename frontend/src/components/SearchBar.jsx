@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { CiSearch } from "react-icons/ci";
 const SearchBar = () => {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [focused, setFocused] = useState(false);
   const navigate = useNavigate();
 
@@ -10,7 +10,7 @@ const SearchBar = () => {
     e.preventDefault();
     if (query.trim()) {
       navigate(`/search?q=${encodeURIComponent(query.trim())}`);
-      setQuery('');
+      setQuery("");
     }
   };
 
@@ -18,7 +18,11 @@ const SearchBar = () => {
     <form
       onSubmit={handleSubmit}
       className={`flex items-center px-3 py-1 rounded-md shadow-md transition-all duration-300 ease-in-out border
-        ${focused ? 'bg-gray-700 scale-105 border-white searchBar-shadow' : 'bg-gray-800 scale-100 border-[#fff5]'}`}
+        ${
+          focused
+            ? "bg-gray-700 scale-105 border-white searchBar-shadow"
+            : "bg-gray-800 scale-100 border-[#fff5]"
+        }`}
     >
       <input
         type="text"
@@ -33,7 +37,7 @@ const SearchBar = () => {
         type="submit"
         className="ml-2 text-sm text-gray-300 hover:text-white transition-colors duration-200"
       >
-        🔍
+        <CiSearch size={22} color="white" />
       </button>
     </form>
   );

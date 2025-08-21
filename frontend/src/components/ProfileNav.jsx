@@ -26,7 +26,7 @@ function ProfileNav({ logout }) {
     },
 
     {
-      path: "/settings",
+      path: "/dashboard/settings",
       text: "settings",
       styles: navLinksStyle,
     },

@@ -1,15 +1,42 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext.jsx";
+import axios from "axios";
+import { ORIGIN } from "../../constants.js";
 
 export default function Register() {
-  const { isLoggedIn } = useAuth();
   const navigate = useNavigate();
+  const { isLoggedIn } = useAuth();
+
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+
+  const registerUser = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(`${ORIGIN}/users/register`, {
+        fullName,
+        email,
+        password,
+      });
+      if (response.status === 200) {
+        setFullName("");
+        setEmail("");
+        setPassword("");
+        navigate("/login");
+      }
+    } catch (error) {
+      setError(error.message || "User Registration Failed!!");
+    }
+  };
+
   useEffect(() => {
     if (isLoggedIn) {
       navigate("/dashboard");
     }
-  }, [isLoggedIn,navigate]);
+  }, [isLoggedIn, navigate]);
 
   return (
     <div className="min-h-screen bg-[#0F172A] flex items-center justify-center px-4">
@@ -18,20 +45,32 @@ export default function Register() {
           Register
         </h2>
 
-        <form className="space-y-4">
+        <form className="space-y-4" method="post" onSubmit={registerUser}>
           <input
             type="text"
-            placeholder="Username"
+            placeholder="Fullname"
+            value={fullName}
+            onChange={(e) => {
+              setFullName(e.target.value);
+            }}
             className="w-full px-4 py-2 bg-slate-800 text-slate-100 rounded-lg border border-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
           <input
             type="email"
             placeholder="Email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
             className="w-full px-4 py-2 bg-slate-800 text-slate-100 rounded-lg border border-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
           <input
             type="password"
             placeholder="Password"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
             className="w-full px-4 py-2 bg-slate-800 text-slate-100 rounded-lg border border-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
 
@@ -53,6 +92,7 @@ export default function Register() {
           </a>
         </p>
       </div>
+      <p className="text-rose-500 capitalize">{error}</p>
     </div>
   );
 }

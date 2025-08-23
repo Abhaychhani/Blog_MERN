@@ -20,6 +20,11 @@ function ProfileNav({ logout }) {
     "block px-4 py-2 hover:bg-[#2c2c3f] text-[#94a1b2] capitalize";
   const navLinks = [
     {
+      path: "/",
+      text: "home",
+      styles: navLinksStyle,
+    },
+    {
       path: "/profile",
       text: "profile",
       styles: navLinksStyle,

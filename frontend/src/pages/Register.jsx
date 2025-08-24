@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext.jsx";
 import axios from "axios";
 import { ORIGIN } from "../../constants.js";
@@ -84,12 +84,12 @@ export default function Register() {
 
         <p className="mt-6 text-center text-slate-400">
           Already have an account?{" "}
-          <a
-            href="/login"
+          <Link
+            to="/login"
             className="text-indigo-400 hover:underline transition"
           >
             Login
-          </a>
+          </Link>
         </p>
       </div>
       <p className="text-rose-500 capitalize">{error}</p>

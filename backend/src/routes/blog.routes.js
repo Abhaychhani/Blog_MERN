@@ -6,7 +6,7 @@ const blogRouter = Router()
 
 blogRouter.get("/",fetchBlogs);
 blogRouter.get("/:id",fetchBlogById);
-blogRouter.post("/create",verifyJWT,createBlog);
+blogRouter.post("/",verifyJWT,createBlog);
 blogRouter.patch("/:id",verifyJWT,updateBlogById);
 blogRouter.delete("/:id",verifyJWT,deleteBlogById);
 

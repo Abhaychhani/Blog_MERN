@@ -21,7 +21,7 @@ export default function DashboardSidebar() {
   ];
 
   return (
-    <aside className="bg-[#1E293B] text-slate-100 h-screen w-16 md:w-64 transition-all duration-300 flex flex-col py-6 shadow-lg">
+    <aside className="bg-[#1E293B] text-slate-100 h-[calc(100dvh-4.2rem)] w-16 md:w-64 transition-all duration-300 flex flex-col py-6 shadow-lg">
       <div className="flex flex-col gap-4 px-3 md:px-4">
         {navItems.map(({ label, icon, path }) => {
           const isActive = location.pathname === path;

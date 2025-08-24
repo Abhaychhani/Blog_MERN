@@ -67,6 +67,19 @@ const deleteBlogById = async (req, res) => {
   }
 };
 
+const fetchBlogByAuthorId = async (req,res) => {
+  try {
+    const {id} = req.params;
+    const blogs = await Blog.find({author:id});
+    if(!blogs){
+      res.status(404).json({message:"Blog Not Found"});
+    }
+    return res.status(200).json({message:"Blogs fetched Successfully.",blogs});
+  } catch (error) {
+    res.status(500).json({message:"somthing went wrong"});
+  }
+}
+
 const fetchBlogs = async (req, res) => {
   try {
     const limit = 4;
@@ -99,4 +112,5 @@ export {
   updateBlogById,
   deleteBlogById,
   fetchBlogs,
+  fetchBlogByAuthorId
 };

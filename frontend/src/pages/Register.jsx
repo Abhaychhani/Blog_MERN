@@ -39,7 +39,7 @@ export default function Register() {
   }, [isLoggedIn, navigate]);
 
   return (
-    <div className="min-h-screen bg-[#0F172A] flex items-center justify-center px-4">
+    <div className="min-h-screen bg-[#0F172A] flex flex-col items-center justify-center px-4">
       <div className="bg-[#1E293B] p-8 rounded-xl shadow-lg w-full max-w-md text-slate-100">
         <h2 className="text-3xl font-bold text-center text-indigo-400 mb-6">
           Register
